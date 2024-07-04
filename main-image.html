@@ -1,0 +1,58 @@
+<style>
+   #slideshow {
+      overflow: hidden;
+      height: 100%;
+      min-width: 180px;
+      width: 100%;
+      background-color: black;
+   }
+
+   .slide {
+      float: left;
+      height: 100%;
+      width: calc(100% / 4);
+   }
+
+   .slide-wrapper {
+      width: calc(728px * 4);
+      height: 100%;
+      min-height: 0;
+
+      animation: slide 10s ease infinite;
+   }
+
+   .slide img {
+      height: 100%;
+   }
+
+   @keyframes slide {
+      20% {
+         margin-left: 0px;
+      }
+      40% {
+         margin-left: calc(-728px * 1);
+      }
+      60% {
+         margin-left: calc(-728px * 2);
+      }
+      80% {
+         margin-left: calc(-728px * 3);
+      }
+   }
+</style>
+<div id="slideshow">
+   <div class="slide-wrapper">
+      <div class="slide">
+         <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="" />
+      </div>
+      <div class="slide">
+         <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="" />
+      </div>
+      <div class="slide">
+         <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="" />
+      </div>
+      <div class="slide">
+         <img src="https://www.w3schools.com/css/img_5terre.jpg" alt="" />
+      </div>
+   </div>
+</div>

@@ -51,6 +51,7 @@
          }
 
          section#img {
+            min-width: 200px;
             grid-area: img;
             background-color: #3498db;
          }
@@ -111,6 +112,13 @@
                   .then((response) => response.text())
                   .then(async (data) => {
                      document.querySelector("#other").innerHTML = data;
+                     loadItemToList();
+                  });
+
+               fetch("main-image.html")
+                  .then((response) => response.text())
+                  .then(async (data) => {
+                     document.querySelector("#img").innerHTML = data;
                      loadItemToList();
                   });
 
