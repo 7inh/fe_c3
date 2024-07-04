@@ -63,9 +63,9 @@
         main#content {
           display: grid;
           grid-template-areas:
-            "header header header header"
-            "hotnews img sidenews sidenews2"
-            "other other other sidenews2";
+            'header header header header'
+            'hotnews img sidenews sidenews2'
+            'other other other sidenews2';
         }
       }
       @media (min-width: 768px) and (max-width: 991px) {
@@ -75,10 +75,10 @@
         main#content {
           display: grid;
           grid-template-areas:
-            "header header header header"
-            "hotnews hotnews img img"
-            "sidenews sidenews sidenews2 sidenews2"
-            "other other other other";
+            'header header header header'
+            'hotnews hotnews img img'
+            'sidenews sidenews sidenews2 sidenews2'
+            'other other other other';
         }
       }
     </style>
@@ -97,26 +97,33 @@
         <section id="other">Other</section>
         <script src="lib.js"></script>
         <script>
-          fetch("list-item.html")
+          fetch('list-item.html')
             .then((response) => response.text())
             .then(async (data) => {
-              document.querySelector("#other").innerHTML = data;
-              loadItemToList();
-            });
+              document.querySelector('#other').innerHTML = data
+              loadItemToList()
+            })
 
-          fetch("side-news.html")
+          fetch('side-news.html')
             .then((response) => response.text())
             .then(async (data) => {
-              document.querySelector("#sidenews").innerHTML = data;
-              loadItemToSideNews();
-            });
+              document.querySelector('#sidenews').innerHTML = data
+              loadItemToSideNews()
+            })
 
-          fetch("sidebar.html")
+          fetch('sidebar.html')
             .then((response) => response.text())
             .then((data) => {
-              document.querySelector(".sidebar").innerHTML = data;
-              loadItemToSidebar();
-            });
+              document.querySelector('.sidebar').innerHTML = data
+              loadItemToSidebar()
+            })
+
+          fetch('side-news-2.html')
+            .then((response) => response.text())
+            .then((data) => {
+              document.querySelector('#sidenews2').innerHTML = data
+              loadItemToSidebar()
+            })
         </script>
       </main>
     </div>
