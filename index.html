@@ -24,13 +24,17 @@
       }
 
       main#content {
-        height: 100vh;
+        height: 100%;
+        overflow-y: scroll;
         grid-template-rows: auto 2fr auto;
         grid-template-columns: 1fr 2fr auto 1.5fr;
         gap: 10px;
       }
 
       header#header {
+        position: sticky;
+        top: 0;
+        left: 0;
         grid-area: header;
         background-color: #f1c40f;
       }
@@ -90,9 +94,13 @@
         .sidebar {
           display: none !important;
         }
+
+        .layout {
+          height: calc(100vh - 100px);
+        }
+
         .side__bottom {
-          display: block;
-          height: fit-content;
+          display: inline-block;
           position: fixed;
           bottom: 0;
           left: 0;
@@ -140,10 +148,21 @@
             .then((response) => response.text())
             .then((data) => {
               document.querySelector('.side__bottom').innerHTML = data;
+
+              const sideBottomHandle =
+                document.querySelector('.side__bottom-icon');
+              const sideBottomContainer = document.querySelector(
+                '.side__bottom-container'
+              );
+
+              sideBottomHandle.addEventListener('click', () => {
+                sideBottomContainer.classList.toggle('close');
+              });
             });
         </script>
       </main>
-      <aside class="side__bottom"></aside>
     </div>
+
+    <aside class="side__bottom"></aside>
   </body>
 </html>
