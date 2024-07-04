@@ -13,5 +13,4 @@ function loadItemToList() {
             console.log(listItem);
             document.querySelector(".list-item").innerHTML = listItem;
         });
-
 }
