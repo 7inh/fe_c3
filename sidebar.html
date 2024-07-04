@@ -1,3 +1,4 @@
+
 <style>
   .sidebar {
     width: 250px;
@@ -77,7 +78,7 @@
   .sidebar .footer .actions {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .sidebar .footer .actions button {
@@ -115,9 +116,209 @@
   .sidebar .item {
     transition: background-color 0.5s;
   }
-</style>
+  
+ .burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
 
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-50%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  top: 0;
+  left: 5px;
+  transform: rotate(405deg);
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  top: 28px;
+  left: 5px;
+  transform: rotate(-405deg);
+}
+.menuBottom{
+  /* width: 50%; */
+  display: block;
+  position: absolute;
+  left: 248px;
+  bottom: 0%;
+  background-color: rgb(132, 118, 118);
+  width: 15%;
+  height: 25%;
+  align-items: center;
+  z-index: 10;
+  border-radius:0 16px 16px 0;
+}
+.menuBottom::after{
+  content: "";
+  display: block;
+  background-color: rgb(132, 118, 118);
+
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  position: relative;
+  left: -11px;
+  top: -80px;
+  z-index: 1;
+}
+.menuBottom .Item{
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.menuItem{
+  background-color: #c9c2c2;
+  padding:10px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all ease 1s;
+}
+.menuItem:hover i{
+  color: wheat;
+  -webkit-animation: jello-vertical 0.9s both;
+	        animation: jello-vertical 0.9s both;
+}
+.menuItem:hover{
+  background-color: black;
+  
+}
+.menuItem span{
+  color: black;
+}
+.menuItem:hover span{
+  color: wheat;
+}
+@-webkit-keyframes jello-vertical {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1);
+            transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-vertical {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1);
+            transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div  id="menuBottom" class="menuBottom ">
+<div class="Item animate__backInLeft">
+  <div class="menuItem">
+     <span style="margin-right: 55px ;">User</span>
+    <i class="fa fa-user"></i>
+  </div>
+  <div class="menuItem">
+    <span style="margin-right: 40px ;">Setting</span>
+    <i class="fa fa-cog"></i>
+  </div>
+  <div class="menuItem">
+    <span style="margin-right: 40px ;">Update</span>
+    <i class="fa fa-user-edit"></i>
+  </div>
+  <div class="menuItem">
+    <span style="margin-right: 40px ;">Log Out</span>
+    <i class="fa fa-external-link-alt"></i>
+  </div>
+
+</div>
+
+</div>
 <div class="sidebar">
+
   <div>
     <div class="header">
       <img src="https://via.placeholder.com/40" alt="Avatar" />
@@ -173,8 +374,28 @@
       </div>
     </div>
     <div class="actions">
-      <button>Update App</button>
-      <button>Logout</button>
+      <div class="popUpMenu">
+        <button id="click-to-see-the-menu">
+          <label for="burger" class="burger">
+            <input id="burger" type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </button>
+        
+      </div>
+      
+      
     </div>
   </div>
 </div>
+<script >
+  const btnMenu = document.getElementById('click-to-see-the-menu')
+const menu  = getElementById('menuBottom')
+const isOpen = false
+btnMenu.addEventListener('click', () => {
+  menu.style.display = isOpen ? 'none' :  'block';
+  isOpen = !isOpen
+})
+</script>
