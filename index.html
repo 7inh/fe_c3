@@ -3,16 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
     <title>Web</title>
     <style>
       html {
         font-size: 20px;
       }
-
       body {
         font-size: 16px;
         all: unset;
@@ -42,7 +37,8 @@
 
       section#hotnews {
         grid-area: hotnews;
-        background-color: #e74c3c;
+        background-color: #e7e2e2;
+        border-radius: 18px;
       }
 
       section#img {
@@ -59,7 +55,7 @@
         grid-area: sidenews2;
         background-color: #9b59b6;
       }
-
+      
       section#other {
         grid-area: other;
       }
@@ -73,12 +69,10 @@
             "other other other sidenews2";
         }
       }
-
       @media (min-width: 768px) and (max-width: 991px) {
         body {
           background-color: #f39c12;
         }
-
         main#content {
           display: grid;
           grid-template-areas:
@@ -90,7 +84,6 @@
       }
     </style>
   </head>
-
   <body>
     <div class="layout">
       <aside class="sidebar">Sidebar</aside>
@@ -103,7 +96,7 @@
         </section>
         <section id="sidenews2">Side News 2</section>
         <section id="other">Other</section>
-        <script defer src="./lib.js"></script>
+        <script src="lib.js"></script>
         <script>
           fetch("list-item.html")
             .then((response) => response.text())
@@ -111,25 +104,25 @@
               document.querySelector("#other").innerHTML = data;
               loadItemToList();
             });
+            fetch("hotnews.html")
+            .then((response) => response.text())
+            .then(async (data) => {
+              document.querySelector("#hotnews").innerHTML = data;
+              loadItemToList();
+            });
 
           fetch("side-news.html")
             .then((response) => response.text())
             .then(async (data) => {
               document.querySelector("#sidenews").innerHTML = data;
-            });
-
-          fetch("header.html")
-            .then((response) => response.text())
-            .then(async (data) => {
-              document.querySelector("#header").innerHTML = data;
-              loadItemToHeader();
+              loadItemToSideNews();
             });
 
           fetch("sidebar.html")
             .then((response) => response.text())
             .then((data) => {
               document.querySelector(".sidebar").innerHTML = data;
-              loadItemToHeader();
+              loadItemToSidebar();
             });
         </script>
       </main>
