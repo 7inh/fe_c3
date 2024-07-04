@@ -105,6 +105,12 @@
         <section id="other">Other</section>
         <script defer src="./lib.js"></script>
         <script>
+          fetch("header.html")
+            .then((response) => response.text())
+            .then(async (data) => {
+              document.querySelector("#header").innerHTML = data;
+              loadItemToList();
+            });
           fetch("list-item.html")
             .then((response) => response.text())
             .then(async (data) => {
