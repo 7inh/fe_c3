@@ -38,7 +38,7 @@
     padding: 10px;
     display: flex;
     align-items: center;
-    color: #333;
+    color: #47de14;
     cursor: pointer;
     border-radius: 0 20px 20px 0;
     overflow: hidden;
@@ -70,9 +70,106 @@
   .sidebar .footer {
     padding: 20px;
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 5px;
     border-top: 1px solid #ddd;
   }
+
+  /* Code actions button */
+  .sidebar .footer .actions {
+    /* position: relative; */
+    display: flex;
+    width: 50px;
+    height: 50px;
+  }
+
+  input#popUp {
+    display: none;
+  }
+
+  input#popUp:checked~.actions-pop {
+    /* display: none; */
+    opacity: inherit;
+    visibility: visible;
+  }
+
+
+  .sidebar .footer .actions .actions-button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar .footer .actions .actions-button:hover {
+    transform: scale(1.1);
+  }
+
+  .sidebar .footer .actions .actions-button:after {
+    content: '\2807';
+    font-size: 50px;
+    background-color: transparent;
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  .sidebar .actions-pop {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 20px;
+    left: 240px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    gap: 20px;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  }
+
+  .sidebar .actions-pop::before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-radius: 20px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid rgba(255, 255, 255, 0.9);
+  }
+
+
+  .sidebar .actions-pop .actions-popUp {
+    cursor: pointer;
+    background-color: rgba(218, 218, 218, 0.9);
+    border: none;
+    padding: 20px 35px 20px;
+    display: flex;
+    gap: 10px;
+    border-radius: 7px;
+  }
+
+  .sidebar .actions-pop .actions-popUp:hover {
+    background-color: rgba(218, 218, 218, 0.9);
+    border: none;
+    padding: 20px 35px 20px;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    transform: scale(1.1);
+  }
+
+  .sidebar .actions-pop .actions-popUp:nth-child(1) {}
+
+  .sidebar .actions-pop .actions-popUp:nth-child(2) {}
+
+  .sidebar .actions-pop .actions-popUp:nth-child(3) {}
+
+  .sidebar .actions-pop .actions-popUp:nth-child(4) {}
 
   .sidebar .footer img {
     width: 40px;
@@ -81,8 +178,19 @@
     margin-right: 10px;
   }
 
+  .avt-info img:empty {
+    background-color: aqua;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: unset;
+  }
   .sidebar .footer .info {
-    flex-grow: 1;
+    display: flex;
   }
 
   .actions {
@@ -103,7 +211,7 @@
   }
 
   .sidebar {
-    background-color: red;
+    background-color: rgb(207, 215, 216);
     transition: width 0.5s;
     display: flex;
     flex-direction: column;
@@ -144,6 +252,10 @@
   }
 
   .sidebar:has(input#toggle:checked) .info p {
+    display: none;
+  }
+
+  .sidebar:has(input#toggle:checked) :is(.logo-container, .menu, .footer) {
     display: none;
   }
 
@@ -230,6 +342,7 @@
 </style>
 
 <div class="sidebar">
+
   <div>
     <div class="header">
       <div class="inf">
@@ -244,24 +357,27 @@
     </div>
     <div class="menu">
       <div class="item">
-        <i class="fas fa-inbox"></i>
+        <!-- <i class="fas fa-inbox"></i> -->
+        <div class="inbox"></div>
         <span>Inbox</span>
       </div>
       <div class="item">
-        <i class="fas fa-bell"></i>
+        <!-- <i class="fas fa-bell"></i> -->
+        <img src="./icon/activity.svg" alt="activity">
         <span>Activity</span>
       </div>
       <div class="item">
-        <i class="fas fa-calendar-alt"></i>
+        <!-- <i class="fas fa-calendar-alt"></i> -->
+        <img src="./icon/schedule.svg" alt="schedule">
         <span>Schedule</span>
       </div>
       <div class="item">
-        <i class="fas fa-folder"></i>
+        <!-- <i class="fas fa-folder"></i> -->
+        <img src="./icon/documents.svg" alt="document">
         <span>Documents</span>
       </div>
     </div>
   </div>
-
   <div class="footer">
     <div class="info">
       <div class="user">
