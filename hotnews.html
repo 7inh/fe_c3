@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;   
+            font-style: normal;
+        }
+    
+        .container-hotnews{
+           font-size: 11px;
+           display: flex;
+           flex-direction: column;
+        }
+        .container-hotnews #image > img{
+
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width:80%;
+            margin-top: 10px;
+
+            margin-bottom: 10px;
+
+         }
+        
+        .container-hotnews #image > img:hover{
+            transform: scale(1.05);
+        }
+
+        
+        #title{
+            font-weight: bold;
+        }
+        strong { 
+        font-weight: bold;
+        }
+        #description{
+            margin-top: 10px;
+        }
+        .date-view{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        strong a{
+            color: black;
+            
+        }
+        a:hover{
+            color: rgb(15, 101, 35);
+        }
+        #description{
+            line-height: 1.3;
+            display: -webkit-box;
+  	        -webkit-line-clamp: 3;  /* số dòng hiển thị */
+  	        -webkit-box-orient: vertical;
+  	        overflow: hidden;
+  	        text-overflow: ellipsis;
+            
+        }
+        #read-more{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        svg *{
+        width: 10%;
+        }
+        .container-hotnews{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #image{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info{
+            margin: 5px;
+
+        }
+        .l {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 0.2s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.o {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 0.4s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.a {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 0.6s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.d {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 0.8s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.i {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 1s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.n {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 1.2s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.g {
+  color: black;
+  opacity: 0;
+  animation: pass 2s ease-in-out infinite;
+  animation-delay: 1.4s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.d1 {
+  color: black;
+  opacity: 0;
+  animation: pass1 2s ease-in-out infinite;
+  animation-delay: 1.6s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+.d2 {
+  color: black;
+  opacity: 0;
+  animation: pass1 2s ease-in-out infinite;
+  animation-delay: 2s;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 3px #919191;
+}
+
+@keyframes pass {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pass1 {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="container-hotnews">
+        <div id="image">
+            <img src="https://photo-baomoi.bmcdn.me/w250_r3x2/2024_07_04_329_49541214/7916a2ecafa346fd1fb2.jpg.webp" alt="hotnews-1">
+            <div id="time">
+                <div class="date-view">
+                    <img src="./icon-hotnews/date.svg" alt="">
+                On July 3  2024
+            
+            
+                    <img src="./icon-hotnews/eyes.svg" alt="">
+
+                12K Views
+            </div>
+        </div>
+    </div>
+        <div class="info">
+            <div id="title"><strong><a href="#">Kim Lý và Subeo chiếm sóng màn ảnh du lịch</a></strong> 
+            </div>
+             <div id="description">Tối ngày 3/7, Hồ Ngọc Hà đăng tải khoảnh khắc bên cạnh đi du lịch với Kim Lý cùng các con lần lượt gồm Subeo, Lisa và Leon. Trong hình ảnh được chia sẻ, gia đình "Nữ hoàng giải trí" diện trang phục tông màu trắng thanh lịch, sang trọng. Đáng chú ý, bé Subeo còn trổ tài làm "phó nháy" cho Hồ Ngọc Hà và Kim Lý. 
+            </div>
+            <div id="read-more">
+                <strong><div class="loader">
+                    <span class="l">R</span>
+                    <span class="o">e</span>
+                    <span class="a">a</span>
+                    <span class="d">d</span>
+                    <span class="i"> </span>
+                    <span class="n">m</span>
+                    <span class="g">o</span>
+                    <span class="g">r</span>
+                    <span class="g">e</span>
+                    <span class="d1">.</span>
+                    <span class="d2">.</span>
+                  </div></strong>
+                <a href=""><img src="./icon-hotnews/arrow.svg" alt=""></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
