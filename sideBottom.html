@@ -1,0 +1,219 @@
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .side__bottom-container {
+    width: 100%;
+    max-height: 70vh;
+    background: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 24px;
+    position: relative;
+    border-radius: 16px 16px 0px 0px;
+    transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
+  }
+
+  .side__bottom-container.close {
+    max-height: 100px;
+    padding: 12px;
+  }
+
+  .side__bottom-container.close .side__list-group--title {
+    display: none;
+  }
+
+  .side__bottom-container.close .side__list-group--content ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+
+    overflow-x: scroll;
+  }
+
+  .side__bottom-container.close .side__list-group--content ul li .content {
+    display: none;
+  }
+
+  .side__bottom-container.close .side__bottom-icon {
+    height: 50px;
+    height: 50px;
+    border-radius: 8px;
+    top: -40px;
+  }
+
+  .side__bottom-container.close .side__bottom-icon img {
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg);
+  }
+
+  .side__bottom-icon {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 35px;
+    padding: 4px;
+    background: black;
+    border-radius: 50%;
+  }
+
+  .side__bottom-icon img {
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+
+  .side__group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .side__group-item {
+    width: 100%;
+    height: auto;
+  }
+
+  .side__list-group--title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #8f8888;
+    margin-bottom: 12px;
+  }
+
+  .side__list-group--content {
+    width: 100%;
+    height: auto;
+  }
+
+  .side__list-group--content ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .side__list-group--content ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #000;
+  }
+
+  .side__list-group--content ul li .icon {
+    width: 30px;
+    height: 30px;
+    flex-grow: 0;
+  }
+
+  .side__list-group--content ul li .icon img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .side__list-group--content ul li .content {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    flex-shrink: 1;
+    flex-grow: 0;
+  }
+</style>
+
+<div class="side__bottom-container close">
+  <div class="side__bottom-content">
+    <ul class="side__group">
+      <li class="side__list-group">
+        <div class="side__list-group--title">Dashboard</div>
+        <div class="side__list-group--content">
+          <ul>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+            <li>
+              <div class="icon">
+                <img src="svgs/home.svg" alt="home icon" />
+              </div>
+
+              <div class="content">Dashboard</div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="side__bottom-icon">
+    <img src="svgs/down.svg" alt="" />
+  </div>
+</div>
+
+<script>
+  const sideBottomHandle = document.querySelector('.side__bottom-icon');
+  const sideBottomContainer = document.querySelector('.side__bottom-container');
+
+  sideBottomHandle.addEventListener('click', () => {
+    sideBottomContainer.classList.toggle('close');
+  });
+</script>
