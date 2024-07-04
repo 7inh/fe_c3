@@ -16,6 +16,7 @@
       body {
         font-size: 16px;
         all: unset;
+        overflow-x  : hidden;
       }
 
       .layout {
@@ -23,7 +24,6 @@
       }
 
       .sidebar {
-        width: 200px;
         background-color: #0ff193;
         flex-shrink: 0;
       }
@@ -36,8 +36,10 @@
       }
 
       header#header {
+        display: inline-block;
         grid-area: header;
         background-color: #f1c40f;
+        position: relative;
       }
 
       section#hotnews {
@@ -111,6 +113,20 @@
               document.querySelector("#other").innerHTML = data;
               loadItemToList();
             });
+            
+            fetch("header.html")
+            .then((response) => response.text())
+            .then(async (data) => {
+              document.querySelector("#header").innerHTML = data;
+              loadItemToHeader();
+            });
+
+          fetch("hotnews.html")
+          .then((response) => response.text())
+          .then(async (data) => {
+            document.querySelector("#hotnews").innerHTML = data;
+            loadItemToList();
+          });
 
           fetch("side-news.html")
             .then((response) => response.text())

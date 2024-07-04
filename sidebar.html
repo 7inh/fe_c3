@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <style>
   .sidebar {
     width: 250px;
@@ -8,60 +10,60 @@
     justify-content: space-between;
   }
 
-  .sidebar .header {
-    padding: 20px;
+  .header {
+    padding-top: 10px;
     display: flex;
     align-items: center;
-    position: relative;
+    flex-direction: column;
   }
 
-  .sidebar .header img {
+  .header img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
   }
 
-  .sidebar #toggle {
-    position: absolute;
-    right: 10px;
-    width: 25px;
-    height: 25px;
-    z-index: 100;
-    opacity: 0;
-  }
-
-  .sidebar .toggle-icon {
-    background-image: url("./icon/toggle.svg");
-    position: absolute;
-    right: 10px;
-    width: 25px;
-    height: 25px;
-  }
-
-  .sidebar .header h2 {
+  .header h2 {
     margin: 0;
     font-size: 18px;
   }
 
-  .sidebar .menu {
-    padding: 20px;
+  .menu {
+    padding: 0 20px;
   }
 
-  .sidebar .menu .item {
-    margin-bottom: 10px;
-    padding: 10px 0;
+  .item {
+    position: relative;
+    padding: 10px;
     display: flex;
     align-items: center;
     color: #47de14;
     cursor: pointer;
+    border-radius: 0 20px 20px 0;
+    overflow: hidden;
+    margin: 0 -10px;
   }
 
-  .sidebar .menu .item:hover {
-    background-color: #f0f0f0;
+  div.item::before {
+      top: 0;
+      left: 0;
+      width: 0;
+      opacity: 0;
+      content: "";
+      height: 100%;
+      position: absolute;
+      transition: width 0.3s ease-out 0.4s;
+      background: linear-gradient(to left, #f0f0f0 0%, red 100%);
   }
 
-  .sidebar .menu .item i {
+  .item:hover::before {
+    width: 100%;
+    opacity: 1;
+  }
+
+  .item i, span {
+    z-index: 10;
     margin-right: 10px;
   }
 
@@ -76,10 +78,11 @@
 
   /* Code actions button */
   .sidebar .footer .actions {
-    /* position: relative; */
     display: flex;
     width: 50px;
     height: 50px;
+    align-items: center;
+    justify-content: center;
   }
 
   input#popUp {
@@ -191,23 +194,14 @@
     display: flex;
   }
 
-  .sidebar .footer .info .name {
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .sidebar .footer .info .email {
-    font-size: 12px;
-    color: #777;
-  }
-
-  .sidebar .footer .actions {
+  .actions {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
   }
 
-  /* .sidebar .footer .actions button {
+  .actions button {
     margin: 5px 0;
     padding: 5px 10px;
     font-size: 12px;
@@ -217,14 +211,9 @@
     border-radius: 5px;
   }
 
-  .sidebar .footer .actions button:hover {
-    background-color: #f0f0f0;
-  } */
-
   .sidebar {
     background-color: rgb(207, 215, 216);
     transition: width 0.5s;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -236,7 +225,35 @@
   }
 
   .sidebar:has(input#toggle:checked) {
-    width: 50px;
+    width: 70px;
+  }
+
+  .sidebar:has(input#toggle:checked) .header h2 {
+    display: none;
+  }
+
+  .sidebar:has(input#toggle:checked) .btn-on {
+    display: none;
+  }
+
+  .sidebar:has(input#toggle:checked) .btn-off {
+    display: block;
+  }
+
+  .sidebar:has(input#toggle:checked) .btn-left input {
+    left: 10px;
+  }
+
+  .sidebar:has(input#toggle:checked) .item span {
+    display: none;
+  }
+
+  .sidebar:has(input#toggle:checked) .info img {
+    display: none;
+  }
+
+  .sidebar:has(input#toggle:checked) .info p {
+    display: none;
   }
 
   .sidebar:has(input#toggle:checked) :is(.logo-container, .menu, .footer) {
@@ -247,94 +264,81 @@
     transition: background-color 0.5s;
   }
 
-  .logo-container {
+  .btn-left{
+    position: relative;
+  }
+
+  .btn-left i{
+      margin-bottom: 10px;
+      margin-left: 20px;
+  }
+
+  .btn-left input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  .inf{
     display: flex;
     align-items: center;
   }
 
-  span {
-    padding-left: 1vh;
+  .btn-off{
+    width: 53px;
+    display: none;
+  }
+  
+  .btn-on
+
+  .info img{
+    background-color: #f0f0f0;
   }
 
-  .item {
-    border-radius: 10px;
-    z-index: 1;
-    font-size: inherit;
-    font-family: inherit;
-    color: white;
-    padding: 0.5em 1em;
-    outline: none;
-    border: none;
-    background-color: hsl(17, 30%, 9%);
+  .user{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
-  .item:hover {
-    cursor: pointer;
-    animation: jelly 0.5s;
+  .footer-menu{
+    position: relative;
   }
 
-  @keyframes jelly {
-
-    0%,
-    100% {
-      transform: scale(1, 1);
-    }
-
-    25% {
-      transform: scale(0.9, 1.1);
-    }
-
-    50% {
-      transform: scale(1.1, 0.9);
-    }
-
-    75% {
-      transform: scale(0.95, 1.05);
-    }
+  .menu-user{
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 190px;
+    height: 150px;
+    border-radius: 20px;
+    z-index: 100;
+    background-color: #ddd8d8a1;
   }
 
-  .inbox {
-    margin-left: 5px;
-
-    background-image: url("./icon/inbox.svg");
-    width: 1em;
-    height: 1em;
-    background-color: #47de14;
+  .footer:has(input#toggle-action:checked) .menu-user{
+    display: flex;
   }
 
-  img[alt="activity"] {
-    margin-left: 5px;
-    width: 1em;
-    height: 1em;
-    background-color: #47de14;
+  .actions i{
+
   }
 
-  img[alt="schedule"] {
-    margin-left: 5px;
-    width: 1em;
-    height: 1em;
-    background-color: #47de14;
-  }
-
-  img[alt="document"] {
-    margin-left: 5px;
-    width: 1em;
-    height: 1em;
-    background-color: #47de14;
-  }
-
-  img[alt="setting"] {
-    margin-left: 5px;
-    width: 1em;
-    height: 1em;
-    background-color: #47de14;
-  }
-
-  img[alt="logout"] {
-    margin-left: 5px;
-    width: 1em;
-    height: 1em;
-    background-color: #47de14;
+  .actions input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    opacity: 0;
   }
 </style>
 
@@ -342,80 +346,53 @@
 
   <div>
     <div class="header">
-      <div class="logo-container">
-        <img src="./image/icon.png" alt="Avatar" />
-        <h2>widelab</h2>
+      <div class="inf">
+        <img src="./image/icon.png" alt="LikeLion" />
+        <h2>LIKELION</h2>
       </div>
-      <input type="checkbox" id="toggle" />
-      <div class="toggle-icon"></div>
+      <div class="btn-left">
+        <i class="btn-on fa-solid fa-toggle-on"></i>
+        <i class="btn-off fa-solid fa-toggle-off"></i>
+        <input type="checkbox" id="toggle" />
+      </div>
     </div>
     <div class="menu">
       <div class="item">
-        <!-- <i class="fas fa-inbox"></i> -->
         <div class="inbox"></div>
+        <i class="fas fa-inbox"></i>
         <span>Inbox</span>
       </div>
       <div class="item">
-        <!-- <i class="fas fa-bell"></i> -->
-        <img src="./icon/activity.svg" alt="activity">
+        <i class="fas fa-bell"></i>
         <span>Activity</span>
       </div>
       <div class="item">
-        <!-- <i class="fas fa-calendar-alt"></i> -->
-        <img src="./icon/schedule.svg" alt="schedule">
+        <i class="fas fa-calendar-alt"></i>
         <span>Schedule</span>
       </div>
       <div class="item">
-        <!-- <i class="fas fa-folder"></i> -->
-        <img src="./icon/documents.svg" alt="document">
+        <i class="fas fa-folder"></i>
         <span>Documents</span>
       </div>
-      <div class="item">
-        <!-- <i class="fas fa-cog"></i> -->
-        <img src="./icon/settings.svg" alt="setting">
-        <span>Settings</span>
-      </div>
-      <div class="item">
-        <!-- <i class="fas fa-sign-out-alt"></i> -->
-        <img src="./icon/logout.svg" alt="logout">
-        <span>Logout</span>
-      </div>
-      <!-- <div class="item">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Logout</span>
-      </div>
-      <div class="item">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Logout</span>
-      </div>
-      <div class="item">
-        <i class="fas fa-sign-out-alt"></i>
-        <span>Logout</span>
-      </div> -->
     </div>
   </div>
   <div class="footer">
     <div class="info">
-      <div class="avt-info">
-      <img src="https://picsum.photos/200/300" alt="" />
-      </div>
-      <div>
-        <p class="name">Hien Phan</p>
-        <p class="email">hienphan3107@gmail.com</p>
+      <div class="user">
+        <img src="/image/avata.png" alt="User Name" />
+        <p>Van Nguyen</p>
       </div>
     </div>
     <div class="actions">
-      <input type="checkbox" id="popUp" />
-      <label for="popUp">
-        <div class="actions-button">
-        </div>
-      </label>
-      <div class="actions-pop">
-        <button class="actions-popUp"><i class="fa-regular fa-user"></i>User Settings</button>
-        <button class="actions-popUp"><i class="fa-solid fa-pen"></i>Update App</button>
-        <button class="actions-popUp"><i class="fa-solid fa-gear"></i>Settings</button>
-        <button class="actions-popUp"><i class="fa-solid fa-right-from-bracket"></i>Logout</button>
-      </div>
+      <i class="fa-solid fa-bars"></i>
+      <input type="checkbox" id="toggle-action" />
+    </div>
+    <div class="footer-menu">
+      <ui class="menu-user">
+        <li>Profie</li>
+        <li>Setting</li>
+        <li>Logout</li>
+      </ui>
     </div>
   </div>
 </div>
