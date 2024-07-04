@@ -2,6 +2,12 @@
   .header {
     overflow: hidden;
     white-space: nowrap;
+    padding: 5px 0;
+    font-size: calc(1em - 5px);
+  }
+  .header-scroll {
+    background-color: #e74c3c;
+    color: white;
   }
 
   .scroll-text {
@@ -23,6 +29,6 @@
     }
   }
 </style>
-<div class="header">
+<div class="header header-scroll">
   <div id="scrollText" class="scroll-text"></div>
 </div>
