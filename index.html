@@ -1,149 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer" />
 
-    <title>Web</title>
+      <title>Web</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <style>
-      html {
-        font-size: 20px;
-      }
-      body {
-        font-size: 16px;
-        all: unset;
-      }
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      <style>
+         html {
+            font-size: 20px;
+         }
+         body {
+            font-size: 16px;
+            all: unset;
+         }
 
-      .layout {
-        display: flex;
-      }
+         .layout {
+            display: flex;
+         }
 
-      .sidebar {
-        width: 200px;
-        background-color: #0ff193;
-        flex-shrink: 0;
-      }
+         .sidebar {
+            width: 200px;
+            background-color: #0ff193;
+            flex-shrink: 0;
+         }
 
-      main#content {
-        height: 100vh;
-        grid-template-rows: auto 2fr auto;
-        grid-template-columns: 1fr 2fr auto 1.5fr;
-        gap: 10px;
-      }
+         main#content {
+            grid-template-rows: auto 2fr auto;
+            grid-template-columns: 1fr 2fr auto 1.5fr;
+            gap: 20px;
+         }
 
-      header#header {
-        grid-area: header;
-        background-color: #f1c40f;
-      }
+         header#header {
+            grid-area: header;
+            background-color: #f1c40f;
+         }
 
-      section#hotnews {
-        grid-area: hotnews;
-        background-color: #e74c3c;
-      }
+         section#hotnews {
+            grid-area: hotnews;
+            background-color: #e74c3c;
+         }
 
-      section#img {
-        grid-area: img;
-        background-color: #3498db;
-      }
+         section#img {
+            min-width: 200px;
+            grid-area: img;
+            background-color: #3498db;
+         }
 
-      section#sidenews {
-        grid-area: sidenews;
-        background-color: #2ecc71;
-      }
+         section#sidenews {
+            grid-area: sidenews;
+            background-color: #2ecc71;
+         }
 
-      section#sidenews2 {
-        grid-area: sidenews2;
-        background-color: #9b59b6;
-      }
+         section#sidenews2 {
+            grid-area: sidenews2;
+            background-color: #9b59b6;
+         }
 
-      section#other {
-        grid-area: other;
-      }
+         section#other {
+            grid-area: other;
+         }
 
-      @media (min-width: 992px) {
-        main#content {
-          display: grid;
-          grid-template-areas:
-            "header header header header"
-            "hotnews img sidenews sidenews2"
-            "other other other sidenews2";
-        }
-      }
-      @media (min-width: 768px) and (max-width: 991px) {
-        body {
-          background-color: #f39c12;
-        }
-        main#content {
-          display: grid;
-          grid-template-areas:
-            "header header header header"
-            "hotnews hotnews img img"
-            "sidenews sidenews sidenews2 sidenews2"
-            "other other other other";
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="layout">
-      <aside class="sidebar">Sidebar</aside>
-      <main id="content">
-        <header id="header">Header</header>
-        <section id="hotnews">Hot News</section>
-        <section id="img">Image</section>
-        <section id="sidenews" style="background-color: #9b59b6">
-          Side News 1
-        </section>
-        <section id="sidenews2">Side News 2</section>
-        <section id="other">Other</section>
-        <script src="lib.js"></script>
-        <script>
-          fetch("list-item.html")
-            .then((response) => response.text())
-            .then(async (data) => {
-              document.querySelector("#other").innerHTML = data;
-              loadItemToList();
-            });
+         @media (min-width: 992px) {
+            main#content {
+               display: grid;
+               grid-template-areas:
+                  "header header header header"
+                  "hotnews img sidenews sidenews2"
+                  "other other other sidenews2";
+            }
+         }
+         @media (min-width: 768px) and (max-width: 991px) {
+            body {
+               background-color: #f39c12;
+            }
+            main#content {
+               display: grid;
+               grid-template-areas:
+                  "header header header header"
+                  "hotnews hotnews img img"
+                  "sidenews sidenews sidenews2 sidenews2"
+                  "other other other other";
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="layout">
+         <aside class="sidebar">Sidebar</aside>
+         <main id="content">
+            <header id="header">Header</header>
+            <section id="hotnews">Hot News</section>
+            <section id="img">Image</section>
+            <section id="sidenews" style="background-color: #9b59b6">
+               Side News 1
+            </section>
+            <section id="sidenews2">Side News 2</section>
+            <section id="other">Other</section>
+            <script src="lib.js"></script>
+            <script>
+               fetch("list-item.html")
+                  .then((response) => response.text())
+                  .then(async (data) => {
+                     document.querySelector("#other").innerHTML = data;
+                     loadItemToList();
+                  });
 
-          fetch("side-news.html")
-            .then((response) => response.text())
-            .then(async (data) => {
-              document.querySelector("#sidenews").innerHTML = data;
-              loadItemToSideNews();
-            });
+               fetch("main-image.html")
+                  .then((response) => response.text())
+                  .then(async (data) => {
+                     document.querySelector("#img").innerHTML = data;
+                     loadItemToList();
+                  });
 
-          fetch("sidebar.html")
-            .then((response) => response.text())
-            .then((data) => {
-              document.querySelector(".sidebar").innerHTML = data;
-            });
-          fetch("hotnews.html")
-            .then((response) => response.text())
-            .then((data) => {
-              document.querySelector("#hotnews").innerHTML = data;
-              loadItemToSidebar();
-            });
+               fetch("side-news.html")
+                  .then((response) => response.text())
+                  .then(async (data) => {
+                     document.querySelector("#sidenews").innerHTML = data;
+                     loadItemToSideNews();
+                  });
 
-          fetch("header.html")
-            .then((response) => response.text())
-            .then((data) => {
-              document.querySelector("#header").innerHTML = data;
-              loadItemToHeader();
-            });
-        </script>
-      </main>
-    </div>
-  </body>
+               fetch("sidebar.html")
+                  .then((response) => response.text())
+                  .then((data) => {
+                     document.querySelector(".sidebar").innerHTML = data;
+                  });
+               fetch("hotnews.html")
+                  .then((response) => response.text())
+                  .then((data) => {
+                     document.querySelector("#hotnews").innerHTML = data;
+                     loadItemToSidebar();
+                  });
+
+               fetch("header.html")
+                  .then((response) => response.text())
+                  .then((data) => {
+                     document.querySelector("#header").innerHTML = data;
+                     loadItemToHeader();
+                  });
+            </script>
+         </main>
+      </div>
+   </body>
 </html>
